@@ -1,0 +1,38 @@
+{
+  "name": "koa-react-cnode",
+  "version": "1.0.0",
+  "description": "react server render learn",
+  "main": "index.js",
+  "babel": {
+    "presets": [
+      "es2015-node5"
+    ]
+  },
+  "scripts": {
+    "start": "babel-node ./app/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xubaoshi/koa-react-cnode.git"
+  },
+  "keywords": [
+    "react",
+    "koa",
+    "server",
+    "render"
+  ],
+  "author": "xubaoshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xubaoshi/koa-react-cnode/issues"
+  },
+  "homepage": "https://github.com/xubaoshi/koa-react-cnode#readme",
+  "dependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "koa": "^1.2.4",
+    "react": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1"
+  }
+}
