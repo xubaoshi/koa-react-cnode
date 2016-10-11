@@ -9,7 +9,8 @@
     ]
   },
   "scripts": {
-    "start": "babel-node ./app/server/server.js"
+    "start": "babel-node ./app/server/server.js",
+    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback  --quiet --open"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,11 @@
     "react": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
+    "merge": "^1.2.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }
