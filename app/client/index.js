@@ -5,12 +5,12 @@ import { Router } from 'react-router'
 import { Provider } from 'react-redux';
 import { ReduxRouter } from 'redux-router'
 
-import {createBrowerHistory} from 'history'
+import {createBrowserHistory} from 'history'
 
 import configureStore from './store/configureStore'
 import routes from './routes.js'
 
-const history = createBrowerHistory();
+const history = createBrowserHistory();
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 const rootElement = document.getElementById('root');
