@@ -1,14 +1,15 @@
-import React,{ Component,PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import * as LayoutActions from '../actions/layout'
 
-export default class App extends Component{
-    constructor(props){
+class App extends Component {
+    constructor(props) {
         super(props)
     }
 
-    render(){
+    render() {
         return (
             <div>
                 Hello World!
@@ -16,3 +17,11 @@ export default class App extends Component{
         )
     }
 }
+
+// function mapStateToProps(state) {
+//     return {
+//         todos:state.todos.
+//     }
+// }
+
+export default connect({}, {})(App)

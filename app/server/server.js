@@ -2,9 +2,9 @@ import koa from 'koa'
 import serve from 'koa-static';
 import router from 'koa-router'
 
-
-import React from 'react';
-import {RoutingContext,match} from 'react-router'
+import React from 'react'
+import {renderToString} from 'react-dom/server'
+import {RoutingContext, match} from 'react-router'
 import { Provider } from 'react-redux'
 import { createLocation } from 'history'
 
@@ -12,7 +12,7 @@ import configureStore from '../client/store/configureStore'
 import routes from '../client/routes'
 
 const app = koa()
-const route = router()   
+const route = router()
 
 const renderFullPage = (html, initialState) => {
   return `
@@ -36,11 +36,20 @@ const renderFullPage = (html, initialState) => {
 console.log(__dirname + '/../../dist')
 app.use(serve(__dirname + '\\..\\..\\dist'))
 
-route.get('/', function *(){
-    const location = createLocation(this.url);
-    match({ routes, location }, (err, redirectLocation, renderProps) => {
-        this.body = renderFullPage("",{})
-    })
+route.get('/', function* () {
+  const location = createLocation(this.url);
+
+  match({ routes, location }, (err, redirectLocation, renderProps) => {
+    const store = configureStore({});
+    const initialView = (
+      <Provider store={store}>
+        <RoutingContext  {...renderProps} />
+      </Provider>
+    )
+    const componentHTML = React.renderToString(initialView)
+    const initialState = store.getState();
+    this.body = renderFullPage(componentHTML, initialState)
+  })
 })
 
 app.use(route.routes())

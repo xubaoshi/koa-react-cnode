@@ -10,8 +10,6 @@ import { createBrowserHistory } from 'history'
 import configureStore from './store/configureStore'
 import routes from './routes.js'
 
-console.log(createBrowserHistory)
-
 const history = createBrowserHistory();
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
