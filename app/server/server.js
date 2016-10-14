@@ -3,8 +3,8 @@ import serve from 'koa-static';
 import router from 'koa-router'
 
 import React from 'react'
-import {renderToString} from 'react-dom/server'
-import {RoutingContext, match} from 'react-router'
+import { renderToString } from 'react-dom/server'
+import {RouterContext, match} from 'react-router'
 import { Provider } from 'react-redux'
 import { createLocation } from 'history'
 
@@ -43,10 +43,10 @@ route.get('/', function* () {
     const store = configureStore({});
     const initialView = (
       <Provider store={store}>
-        <RoutingContext  {...renderProps} />
+        <RouterContext  {...renderProps} />
       </Provider>
     )
-    const componentHTML = React.renderToString(initialView)
+    const componentHTML = renderToString(initialView)
     const initialState = store.getState();
     this.body = renderFullPage(componentHTML, initialState)
   })
