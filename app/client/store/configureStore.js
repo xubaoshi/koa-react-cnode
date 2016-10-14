@@ -7,7 +7,8 @@ import createLogger from 'redux-logger'
 // import promiseMiddleware from '../middleware/promiseMiddleware'
 import rootReducer from  '../reducers'
 
-console.log(createDevTools)
+// 坑爹的组件  history与redux-router不同步
+const createHistory = createBrowserHistory
 
 const middlewareBuilder = () => {
     let middleware = {}
@@ -19,7 +20,7 @@ const middlewareBuilder = () => {
         allComposeElements = [
             middleware,
             reduxReactRouter({
-                createBrowserHistory
+                createHistory
             })
         ]
     } else {

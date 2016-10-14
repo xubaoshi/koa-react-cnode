@@ -1,14 +1,16 @@
 import 'babel-polyfill'
-// import React from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router'
 import { Provider } from 'react-redux';
 import { ReduxRouter } from 'redux-router'
 
-import {createBrowserHistory} from 'history'
+import { createBrowserHistory } from 'history'
 
 import configureStore from './store/configureStore'
 import routes from './routes.js'
+
+console.log(createBrowserHistory)
 
 const history = createBrowserHistory();
 const initialState = window.__INITIAL_STATE__;
@@ -17,11 +19,9 @@ const rootElement = document.getElementById('root');
 
 render(
     <Provider store={store}>
-        {() =>
-            <ReduxRouter>
-                <Router children={routes} history={history}/>
-            </ReduxRouter>
-        }
+       <ReduxRouter>
+             <Router children={routes} history={history}/>
+       </ReduxRouter>
     </Provider>
     ,
     rootElement
