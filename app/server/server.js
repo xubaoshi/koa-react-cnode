@@ -23,7 +23,7 @@ const renderFullPage = (html, initialState) => {
         <title>Isomorphic Redux Example</title>
       </head>
       <body>
-        <div id="root">${html}</div>
+        <div id="root"><div class="wrapper">${html}</div></div>
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}; 
         </script>
@@ -40,7 +40,8 @@ route.get('/', function* () {
   const location = createLocation(this.url);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
-    const store = configureStore({});
+    console.log(renderProps)
+    const store = configureStore({})
     const initialView = (
       <Provider store={store}>
         <RouterContext  {...renderProps} />

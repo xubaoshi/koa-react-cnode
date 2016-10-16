@@ -1,5 +1,7 @@
 [http://wwsun.github.io/posts/react-with-es6-part-1.html](http://wwsun.github.io/posts/react-with-es6-part-1.html)<br>
 [https://blog.coding.net/blog/React-server-rendering](https://blog.coding.net/blog/React-server-rendering)
+[https://zhuanlan.zhihu.com/p/22875338](https://zhuanlan.zhihu.com/p/22875338)
+
 ## 使用es6开发nodejs服务端 ##
 <p>由于node现在的版本并不是所有的方法都支持es6，因此需使用babel进行动态编译，故依赖包如下：</p>
 

@@ -18,10 +18,14 @@ class App extends Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return {
-//         todos:state.todos.
-//     }
-// }
+function mapStateToProps(state) {
+    return {
+        
+    }
+}
 
-export default connect({}, {})(App)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(LayoutActions,dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
