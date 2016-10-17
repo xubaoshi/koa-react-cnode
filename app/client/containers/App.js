@@ -10,6 +10,7 @@ class App extends Component {
     }
 
     render() {
+        const { todo } = this.props;
         return (
             <div>
                 Hello World!
@@ -19,13 +20,14 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state.todo)
     return {
-        
+        todo: state.todo.present
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(LayoutActions,dispatch)
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(LayoutActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

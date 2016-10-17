@@ -33,14 +33,15 @@ const renderFullPage = (html, initialState) => {
   `;
 }
 
-console.log(__dirname + '/../../dist')
+console.log(__dirname + '\\..\\..\\dist')
 app.use(serve(__dirname + '\\..\\..\\dist'))
 
-route.get('/', function* () {
+route.get('*', function* () {
   const location = createLocation(this.url);
-
+  console.log('routes:' + routes)
+  console.log('location:' + location)
   match({ routes, location }, (err, redirectLocation, renderProps) => {
-    console.log(renderProps)
+    console.log(this.url)
     const store = configureStore({})
     const initialView = (
       <Provider store={store}>
@@ -49,6 +50,7 @@ route.get('/', function* () {
     )
     const componentHTML = renderToString(initialView)
     const initialState = store.getState();
+    console.log(componentHTML)
     this.body = renderFullPage(componentHTML, initialState)
   })
 })

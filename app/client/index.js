@@ -15,6 +15,8 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 const rootElement = document.getElementById('root');
 
+console.log("init render")
+
 render(
     <Provider store={store}>
        <ReduxRouter>
