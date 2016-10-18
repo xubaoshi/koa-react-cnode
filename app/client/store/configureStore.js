@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware, compose} from 'redux'
-import { createDevTools } from 'redux-devtools'
+import DevTools from '../containers/DevTools';
 import { reduxReactRouter } from 'redux-router'
 import thunk from 'redux-thunk'
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory  } from 'history';
 import createLogger from 'redux-logger'
 // import promiseMiddleware from '../middleware/promiseMiddleware'
 import rootReducer from  '../reducers'
 
 // 坑爹的组件  history与redux-router不同步
-const createHistory = createBrowserHistory
+// const createHistory = createBrowserHistory
 
 const middlewareBuilder = () => {
     let middleware = {}
@@ -20,8 +20,9 @@ const middlewareBuilder = () => {
         allComposeElements = [
             middleware,
             reduxReactRouter({
-                createHistory
-            })
+                createHistory : createBrowserHistory 
+            }),
+            DevTools.instrument()
         ]
     } else {
         middleware = applyMiddleware(...universalMiddleware);

@@ -4,9 +4,11 @@ import undoable from 'redux-undo'
 
 import todo from './todo'
 
+console.log(routerStateReducer)
+
 const rootReducer = combineReducers({
-    todo:undoable(todo),
-    router:routerStateReducer
+    router:routerStateReducer,
+    todo:undoable(todo)
 })
 
 export default rootReducer

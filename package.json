@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "babel-node ./app/server/server.js",
-    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback  --quiet --open"
+    "start:dev": "webpack-dev-server --inline --content-base dist/ --history-api-fallback  --quiet   --devtool=inline-source-map"
   },
   "repository": {
     "type": "git",
@@ -59,6 +59,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "merge": "^1.2.0",
     "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }
